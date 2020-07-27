@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float forwardForce = 2000f;
     public float sidewaysForce = 500f;
-    public float jumpForce = 500f;
+    public float jumpForce = 20f;
 
     // FixedUpdate over Regular Update because
     // we are using it to mess with physics.
@@ -25,12 +25,12 @@ public class PlayerMovement : MonoBehaviour
         {
           rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0);
 
-        if (Input.GetKeyDown("space")
+        if (Input.GetKey (KeyCode.Space))
         {
-          Vector3 atas = new Vector3 (0,100,0);
-          rb.AddForce(atas * speed);
-
+          rb.AddForce(Vector3.up * jumpForce);
         }
+
+
 
 
 
